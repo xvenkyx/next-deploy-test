@@ -7,7 +7,7 @@ export const GET = async (req: Request, res: Response) => {
     await connect();
     const users = await User.find();
 
-    return new NextResponse(JSON.stringify(users), { status: 200 });
+    return new NextResponse(JSON.stringify({users: users}), { status: 200 });
   } catch (error: any) {
     return new NextResponse(error, { status: 500 });
   }
